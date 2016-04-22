@@ -279,14 +279,14 @@ To go through this exercise, you will need to install~:
 \item \texttt{Maven} (\texttt{sudo apt-get install maven} | \texttt{sudo yum install apache-maven})
 \end{itemize}
 
-You also need an account on both \url{gforge.inria.fr} and \url{ci.inria.fr} and to be a member of the \texttt{tpcisedra} project on both platforms.
+You also need an account on both \url{gforge.inria.fr} and \url{ci.inria.fr} and to be a member of the \texttt{tpcisedncy} project on both platforms.
 
 \section{Setup}
 
 \subsection{Create a personal copy of the git repository from INRIA forge and clone it}
-First, you will create your personal \texttt{git} repository on the INRIA forge as a branch of the main repository for the \texttt{tpcisedra} project~:
+First, you will create your personal \texttt{git} repository on the INRIA forge as a branch of the main repository for the \texttt{tpcisedncy} project~:
 \begin{itemize}
-\item Go to \url{https://gforge.inria.fr/projects/tpcisedra/}
+\item Go to \url{https://gforge.inria.fr/projects/tpcisedncy/}
 \item Click on the \textbf{\texttt{CODE SOURCE}} or \textbf{\texttt{SCM}} tab
 \item Click on \textbf{\texttt{Request a personal repository}}
 \item Back to the \textbf{\texttt{SCM}} tab, look for the command to access your personal repository.
@@ -297,7 +297,7 @@ First, you will create your personal \texttt{git} repository on the INRIA forge 
 
 Then on a terminal, clone the content of your personal \texttt{git} repository. The correct command should look like this~:
 \begin{lstlisting}
-$ git clone git+ssh://<yourlogin>@scm.gforge.inria.fr/gitroot/tpcisedra/
+$ git clone git+ssh://<yourlogin>@scm.gforge.inria.fr/gitroot/tpcisedncy/
     users/<yourlogin>.git
 $ cd <yourlogin>/java
 \end{lstlisting}
@@ -307,7 +307,7 @@ You should have retrieved the following file tree~:\\
 {\centering\small
             \begin{minipage}[t]{0.3\linewidth}
 \dirtree{%
-.1 tpcisedra/java.
+.1 tpcisedncy/java.
 .2 pom.xml.
 .2 src.
 .3 main.
@@ -337,7 +337,7 @@ The project is made up of~:
 \subsection{Check that you can build the project}
 \begin{lstlisting}
 $ pwd
-yourpath/tpcisedra/java
+yourpath/tpcisedncy/java
 $ mvn package
 \end{lstlisting}
 
@@ -391,7 +391,7 @@ You may be prompted to log into \texttt{Jenkins}, use the same login/passwd as f
 \end{itemize}
 
 \subsubsection{Create a new Jenkins item}
-From our \texttt{Jenkins} dashboard page (\url{https://ci.inria.fr/tpcisedra/})~:
+From our \texttt{Jenkins} dashboard page (\url{https://ci.inria.fr/tpcisedncy/})~:
 \begin{itemize}
 \item Click \textbf{\texttt{New Item}} in the menu on the left
 \item Provide a name for this new item (avoid spaces since it is likely to lead to errors)
@@ -404,7 +404,7 @@ In the \textbf{\texttt{Configuration}} page (which you will be redirected to aft
 \item Choose \texttt{git} as your \textbf{\texttt{Source Code Manager}}
 \item Copy the \emph{anonymous} url to your personal repository into the appropriate field~:
 \begin{lstlisting}
-https://scm.gforge.inria.fr/anonscm/git/tpcisedra/users/<yourlogin>.git
+https://scm.gforge.inria.fr/anonscm/git/tpcisedncy/users/<yourlogin>.git
 \end{lstlisting}
 \end{itemize}
 \end{homeworkProblem}
@@ -435,7 +435,7 @@ In the \textbf{\texttt{Build History}} on the left~:
 \subsection{Exercise 1}
 
 Have a look at the code of the method \texttt{Sphere::computeVolume()}.\\
-To do so, edit \texttt{tpcisedra/java/src/main/java/fr/inria/sed/Sphere.java}.
+To do so, edit \texttt{tpcisedncy/java/src/main/java/fr/inria/sed/Sphere.java}.
 
 The code should be like that~:
 \begin{lstlisting}
@@ -505,12 +505,12 @@ This is when \textbf{test coverage} becomes handy.
 Run the following \texttt{maven} command~:
 \begin{lstlisting}
 $ pwd
-yourpath/tpcisedra/java
+yourpath/tpcisedncy/java
 $ mvn cobertura:cobertura
 \end{lstlisting}
 
 \texttt{Cobertura} should have produced test coverage results in the following directory~:\\
-\texttt{yourpath/tpcisedra/java/target/site/cobertura}
+\texttt{yourpath/tpcisedncy/java/target/site/cobertura}
 
 
 Use your favorite \texttt{Web} browser (\texttt{firefox}, \texttt{chrome}, \texttt{iceweasel}, ...) to visualize the generated results of the test coverage~:
@@ -546,7 +546,7 @@ The report generation is now included in the build life cycle (\textbf{\texttt{s
 \item Generate the report~:
 \begin{lstlisting}
 $ pwd
-yourpath/tpcisedra/java
+yourpath/tpcisedncy/java
 $ mvn site
 \end{lstlisting}
 
@@ -587,7 +587,7 @@ You should have the following file tree~:\\
 {\centering\small
             \begin{minipage}[t]{0.3\linewidth}
 \dirtree{%
-.1 tpcisedra/java.
+.1 tpcisedncy/java.
 .2 pom.xml.
 .2 src.
 .3 main.
@@ -624,7 +624,7 @@ Hint~: you may not need any additional tests ;)
 Let's try and run a style checker~:
 \begin{lstlisting}
 $ pwd
-yourpath/tpcisedra/java
+yourpath/tpcisedncy/java
 $ mvn checkstyle:checkstyle
 \end{lstlisting}
 
@@ -641,7 +641,7 @@ Indeed, our coding style is closer to \texttt{Google} style than it is to \textt
 Try running with Google checks (provided by the plugin)
 \begin{lstlisting}
 $ pwd
-yourpath/tpcisedra/java
+yourpath/tpcisedncy/java
 $ mvn checkstyle:checkstyle -Dcheckstyle.config.location=google_checks.xml
 \end{lstlisting}
 NOTE~: this can also be achieved by adding the following lines to your pom.xml~:
@@ -665,7 +665,7 @@ $ wget -O custom_checks.xml http://tinyurl.com/z9pfdlx
 \item Tell maven to use this config file by changing the value of variable \texttt{checkstyle.config.location}:
 \begin{lstlisting}
 $ pwd
-yourpath/tpcisedra/java
+yourpath/tpcisedncy/java
 $ mvn checkstyle:checkstyle -Dcheckstyle.config.location=custom_checks.xml
 \end{lstlisting}
 \item Modify the file \texttt{custom\_checks.xml} so that it accepts single character parameter names.
@@ -696,7 +696,7 @@ The check style report is now included in the build life cycle (\textbf{\texttt{
 \item Generate the report~:
 \begin{lstlisting}
 $ pwd
-yourpath/tpcisedra/java
+yourpath/tpcisedncy/java
 $ mvn site
 \end{lstlisting}
 \item Use your favorite \texttt{Web} browser (\texttt{firefox}, \texttt{chrome}, \texttt{iceweasel}, ...) to visualize the generated report~:
@@ -755,9 +755,9 @@ For this you will use the following tools~:
 \subsection{Setup}
 
 \subsubsection{Create and clone your personal copy of the repository}
-First, you will create your personal \texttt{git} repository on the INRIA forge as a branch of the main repository for the \texttt{tpcisedra} project~:
+First, you will create your personal \texttt{git} repository on the INRIA forge as a branch of the main repository for the \texttt{tpcisedncy} project~:
 \begin{itemize}
-\item Go to \url{https://gforge.inria.fr/projects/tpcisedra/}
+\item Go to \url{https://gforge.inria.fr/projects/tpcisedncy/}
 \item Click on the \textbf{\texttt{CODE SOURCE}} or \textbf{\texttt{SCM}} tab
 \item Click on \textbf{\texttt{Request a personal repository}}
 \item Back to the \textbf{\texttt{SCM}} tab, look for the command to access your personal repository.
@@ -768,7 +768,7 @@ First, you will create your personal \texttt{git} repository on the INRIA forge 
 
 Then on a terminal, clone the content of your personnal \texttt{git} repository. The correct command should look like this~:
 \begin{lstlisting}
-$ git clone git+ssh://<yourlogin>@scm.gforge.inria.fr/gitroot/tpcisedra/
+$ git clone git+ssh://<yourlogin>@scm.gforge.inria.fr/gitroot/tpcisedncy/
     users/<yourlogin>.git
 $ cd <yourlogin>/python
 \end{lstlisting}
@@ -777,7 +777,7 @@ You should have retrieved the following file tree~:\\
 {\centering\small
   \begin{minipage}[t]{0.3\linewidth}
     \dirtree{%
-      .1 tpcisedra/python.
+      .1 tpcisedncy/python.
       .2 sphere.
       .2 tp\_ci\_sed.
       .3 \_\_init\_\_.py.
@@ -1016,7 +1016,7 @@ You may be prompted to log into \texttt{Jenkins}, use the same login/passwd as f
 
 Running your first test on CI~:
 \begin{itemize}
-\item From our \texttt{Jenkins} dashboard page (\url{https://ci.inria.fr/tpcisedra/}), click \textbf{\texttt{New Item}} in the menu on the left
+\item From our \texttt{Jenkins} dashboard page (\url{https://ci.inria.fr/tpcisedncy/}), click \textbf{\texttt{New Item}} in the menu on the left
 \item Provide a name for this new item (avoid spaces since it is likely to lead to errors) and select \textbf{\texttt{Freestyle project}}
 \end{itemize}
 
@@ -1034,7 +1034,7 @@ to after clicking \textbf{\texttt{OK}}).
 \item Copy the \emph{anonymous} URL to your personal repository into the appropriate field~:
 
 \begin{lstlisting}
-https://scm.gforge.inria.fr/anonscm/git/tpcisedra/users/<yourlogin>.git
+https://scm.gforge.inria.fr/anonscm/git/tpcisedncy/users/<yourlogin>.git
 \end{lstlisting}
 \end{itemize}
 
@@ -1061,7 +1061,7 @@ Then on the INRIA forge server, create the post-commit hook \texttt{post-receive
 
 \begin{lstlisting}
 $ ssh <yourforgelogin>@scm.gforge.inria.fr
-$ cd /gitroot/tpcisedra/users/<yourforgelogin>.git/hooks
+$ cd /gitroot/tpcisedncy/users/<yourforgelogin>.git/hooks
 $ touch post-receive
 $ chmod +x post-receive
 \end{lstlisting}
@@ -1070,14 +1070,14 @@ And then create the executable file \texttt{post-receive}~:
 %%
 For this, you can copy the following file, and simply modify the login in the script:
 \begin{lstlisting}[breaklines=true]
-$ cp /gitroot/tpcisedra/users/bremond.git/hooks/post-receive /gitroot/tpcisedra/users/<yourforgelogin>.git/hooks
+$ cp /gitroot/tpcisedncy/users/bremond.git/hooks/post-receive /gitroot/tpcisedncy/users/<yourforgelogin>.git/hooks
 \end{lstlisting}
 
 Content should look like~:
 \begin{lstlisting}[breaklines=true]
 #!/bin/sh
 wget --auth-no-challenge --no-check-certificate -q -O -
-http://ci.inria.fr/tpcisedra/git/notifyCommit?url=https://scm.gforge.inria.fr/anonscm/git/tpcisedra/users/<yourforgelogin>.git
+http://ci.inria.fr/tpcisedncy/git/notifyCommit?url=https://scm.gforge.inria.fr/anonscm/git/tpcisedncy/users/<yourforgelogin>.git
 \end{lstlisting}
 
 After every commit, INRIA forge git server will contact \texttt{ci.inria.fr} and tell it to build the projects that use your repository. And so trigger your project build.
@@ -1281,7 +1281,7 @@ $ python setup.py nosetests
 ...
 
 ----------------------------------------------------------------------
-XML: /home/harter/work/tpcisedra/python/nosetests.xml
+XML: /home/harter/work/tpcisedncy/python/nosetests.xml
 Name                  Stmts   Miss Branch BrPart  Cover   Missing
 -----------------------------------------------------------------
 tp_ci_sed.py              1      0      0      0   100%
@@ -1482,7 +1482,7 @@ management, document in a script the test procedure(s)
 and that it also handles many tests environments in one command for the user.
 
 \paragraph{Other versions}
-If everything succeeds, and you can test using \texttt{python3} (\texttt{Python}3 is installed in the virtual machine related to \texttt{ci.inria.fr/tpcisedra}
+If everything succeeds, and you can test using \texttt{python3} (\texttt{Python}3 is installed in the virtual machine related to \texttt{ci.inria.fr/tpcisedncy}
 ).
 \begin{itemize}
 \item Use \texttt{envlist = py27,py32} (for \texttt{Python}3.2)
@@ -1649,9 +1649,9 @@ For example~:
 \subsection{Local setup}
 
 \subsubsection{Clone the git repository from INRIA forge and create your own branch}
-First, you will create your personal \texttt{git} repository on the INRIA forge as a branch of the main repository for the \texttt{tpcisedra} project~:
+First, you will create your personal \texttt{git} repository on the INRIA forge as a branch of the main repository for the \texttt{tpcisedncy} project~:
 \begin{itemize}
-\item Go to \url{https://gforge.inria.fr/projects/tpcisedra/}
+\item Go to \url{https://gforge.inria.fr/projects/tpcisedncy/}
 \item Click on the \textbf{\texttt{CODE SOURCE}} or \textbf{\texttt{SCM}} tab
 \item Click on \textbf{\texttt{Request a personal repository}}
 \item Back to the \textbf{\texttt{SCM}} tab, look for the command to access your personal repository.
@@ -1663,15 +1663,15 @@ First, you will create your personal \texttt{git} repository on the INRIA forge 
 Then on a terminal, clone the content of your personal \texttt{git} repository. The correct command should look like this~:
 \begin{lstlisting}
 $ git clone \
-  git+ssh://<yourlogin@scm.gforge.inria.fr/gitroot/tpcisedra/users/<yourlogin>.git
-$ cd tpcisedra/cxx
+  git+ssh://<yourlogin@scm.gforge.inria.fr/gitroot/tpcisedncy/users/<yourlogin>.git
+$ cd tpcisedncy/cxx
 \end{lstlisting}
 
 A minimal \texttt{CMake} project is present under the file tree~:\\
 {\centering\small
             \begin{minipage}[t]{0.3\linewidth}
 \dirtree{%
-  .1 tpcisedra/cxx.
+  .1 tpcisedncy/cxx.
   .2 CMakeLists.txt.
   .2 cmake.
   .3 TP.cmake.
@@ -1808,7 +1808,7 @@ You may be prompted to log into \texttt{Jenkins}, use the same login/passwd as f
 
 Running your first test with Jenkins~:
 \begin{itemize}
-\item From our \texttt{Jenkins} dashboard page (\url{https://ci.inria.fr/tpcisedra/}), click \textbf{\texttt{New Item}} in the menu on the left
+\item From our \texttt{Jenkins} dashboard page (\url{https://ci.inria.fr/tpcisedncy/}), click \textbf{\texttt{New Item}} in the menu on the left
 \item Provide a name for this new item (avoid spaces since it is likely to lead to errors) and select \textbf{\texttt{Freestyle project}}
 \end{itemize}
 
@@ -1819,7 +1819,7 @@ Running your first test with Jenkins~:
 \item Copy the \emph{anonymous} URL to your personal repository into the appropriate field~:
 
 \begin{lstlisting}
-https://scm.gforge.inria.fr/anonscm/git/tpcisedra/users/<yourlogin>.git
+https://scm.gforge.inria.fr/anonscm/git/tpcisedncy/users/<yourlogin>.git
 \end{lstlisting}
 \end{itemize}
 
@@ -1843,7 +1843,7 @@ Then on the INRIA forge server, create the post-commit hook \texttt{post-receive
 
 \begin{lstlisting}
 $ ssh <yourforgelogin>@scm.gforge.inria.fr
-$ cd /gitroot/tpcisedra/users/<yourforgelogin>.git/hooks
+$ cd /gitroot/tpcisedncy/users/<yourforgelogin>.git/hooks
 $ touch post-receive
 $ chmod +x post-receive
 \end{lstlisting}
@@ -1852,13 +1852,13 @@ And then create the executable file \texttt{post-receive} which content is~:
 \begin{lstlisting}[breaklines=true]
 #!/bin/sh
 wget --auth-no-challenge --no-check-certificate -q -O -
-http://ci.inria.fr/tpcisedra/git/notifyCommit?url=https://scm.gforge.inria.fr/anonscm/git/tpcisedra/users/<yourforgelogin>.git
+http://ci.inria.fr/tpcisedncy/git/notifyCommit?url=https://scm.gforge.inria.fr/anonscm/git/tpcisedncy/users/<yourforgelogin>.git
 \end{lstlisting}
 
 %$
 For this, you can copy the following file, and simply modify the login~:
 \begin{lstlisting}[breaklines=true]
-$ cp /gitroot/tpcisedra/users/bremond.git/hooks/post-receive /gitroot/tpcisedra/users/<yourforgelogin>.git/hooks
+$ cp /gitroot/tpcisedncy/users/bremond.git/hooks/post-receive /gitroot/tpcisedncy/users/<yourforgelogin>.git/hooks
 \end{lstlisting}
 
 %$
@@ -1881,7 +1881,7 @@ Now}} in the menu on the left.
 
 \paragraph{First part}
 Edit the implementation of the \texttt{Sphere} class~:
-\texttt{tpcisedra/c++/src/Sphere.cpp} and have a look at the code of the method \texttt{Sphere::volume()}.
+\texttt{tpcisedncy/c++/src/Sphere.cpp} and have a look at the code of the method \texttt{Sphere::volume()}.
 
 \begin{lstlisting}
 double Sphere::volume() const
@@ -1892,7 +1892,7 @@ double Sphere::volume() const
 
 This is the method which is tested in the unique test of the library, and the test is implemented in the file~:
 
-\texttt{tpcisedra/c++/src/tests/testTP.cpp}
+\texttt{tpcisedncy/c++/src/tests/testTP.cpp}
 
 Let's imagine we want to improve the efficiency of the \texttt{volume()}
 method by pre-computing the value \verb?4 * Math.PI / 3?
@@ -2060,7 +2060,7 @@ You should retrieve the following file tree~:\\
 {\centering\small
             \begin{minipage}[t]{0.3\linewidth}
 \dirtree{%
-  .1 tpcisedra/cxx.
+  .1 tpcisedncy/cxx.
   .2 CMakeLists.txt.
   .2 cmake.
   .3 TP.cmake.
@@ -2119,7 +2119,7 @@ $ cppcheck <your source directory> -f -q --enable=style
 
 Beware~: The results we obtain depend on the version of \texttt{cppcheck} !
 
-On the virtual machine configured for \texttt{ci.inria.fr/tpcisedra}, the latest (\texttt{1.71}) \texttt{cppcheck} is installed.
+On the virtual machine configured for \texttt{ci.inria.fr/tpcisedncy}, the latest (\texttt{1.71}) \texttt{cppcheck} is installed.
 \clearpage
 \subsection{Exercise 4}
 TODO~:
