@@ -23,7 +23,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass{article}
+\documentclass{book}
 
 \usepackage{fancyhdr} % Required for custom headers
 \usepackage{lastpage} % Required to determine the last page for the footer
@@ -223,11 +223,11 @@
 %----------------------------------------------------------------------------------------
 
 \newcommand{\hmwkTitle}{Java/C++/Python Exercises} % Assignment title
-\newcommand{\hmwkDueDate}{Tuesday,\ December\ 08,\ 2015} % Due date
+\newcommand{\hmwkDueDate}{Thursday,\ April\ 28,\ 2016} % Due date
 \newcommand{\hmwkClass}{Continuous Integration Seminar} % Course/class
 \newcommand{\hmwkClassTime}{13h30} % Class/lecture time
-\newcommand{\hmwkClassInstructor}{\url{http://sed.inrialpes.fr}} % Teacher/lecturer
-\newcommand{\hmwkAuthorName}{Maurice Br\'{e}mond, Ga\"{e}tan Harter, David Parsons -- SED INRIA Rh\^{o}ne-Alpes} % Your name
+\newcommand{\hmwkClassInstructor}{\url{https://sed-ncy.inria.fr}} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Laurent Pierron and Emmanuel Jeanvoine} % Your name
 
 
 %----------------------------------------------------------------------------------------
@@ -243,7 +243,7 @@
 %\vspace{3in}
 }
 
-\author{\textsf{\hmwkAuthorName}}
+\author{\textsf{\hmwkAuthorName}\\ (All credits to Maurice Br\'{e}mond, Ga\"{e}tan Harter, David Parsons\\ from SED INRIA Rh\^{o}ne-Alpes for the orginal work)}
 \date{\textit{\hmwkDueDate}} % Insert date here if you want it to appear below your name
 
 %----------------------------------------------------------------------------------------
@@ -1641,14 +1641,9 @@ On \texttt{Linux}, \texttt{BSD}, \texttt{MACOS X} systems, suitable versions may
 
 For example~:
 \begin{itemize}
-\item On \texttt{Fedora} systems, one may use the command~:\\
-\texttt{sudo yum install cmake gcc-c++ cppunit cppcheck gcov lcov}
 \item On recent \texttt{Debian} or \texttt{Ubuntu} systems~:\\
-\texttt{sudo apt-get install cmake gcc-c++ cppunit cppcheck gcov lcov}
+\texttt{sudo apt-get install cmake gcc g++ libcppunit-dev cppcheck gcovr lcov}
 \end{itemize}
-
-For \texttt{gcovr}, use~:\\
- \texttt{sudo pip install gcovr}.
 
 \section{Unit testing}
 \subsection{Local setup}
